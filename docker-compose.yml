@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-    container_name: maria_db
+    container_name: mariadb_sample
     image: mariadb:10.6
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -9,6 +9,7 @@ services:
       - "3306:3306"
 
   web:
+    container_name: rails7_sample
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
